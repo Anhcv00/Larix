@@ -325,7 +325,7 @@ body {
 
 .item-captions {
     position: absolute;
-    bottom: -20px;
+    bottom: 10px;
     left: 30px;
     text-align: center;
     color: var(--footer-bg);
@@ -532,9 +532,20 @@ input[type="text"]:focus, input[type="email"]:focus {
     width: 100%;
     margin-top: .25rem;
     font-size: .875em;
-    color: var(--three-color)
+    color: var(--three-color);
 }
 
+input:valid {
+    border: 1px solid var(--footer-bg);
+}
+
+input.invalid {
+    border: 1px solid var(--three-color);
+}
+
+input.invalid + .invalid-feedback {
+    display: block;
+}
 
 /* Footer */
 

@@ -571,7 +571,7 @@
                         </div>
                         <div class="col-lg-8">
                             <div class="contact-form">
-                                <form action="/submit_form" method="post">
+                                <form action="/submit_form" method="post" novalidate>
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div>
@@ -598,7 +598,7 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
-                                            <input type="submit" name="send" id="submit" class="btn btn-primary submitBtn" value="Send Messages" required>
+                                            <input type="submit" name="send" id="submit" class="btn btn-primary submitBtn" value="Send Messages">
                                         </div>
                                     </div>
                                 </form>
@@ -671,5 +671,27 @@
             </div>
         </div>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const inputs = document.querySelectorAll('input[required]');
+
+            inputs.forEach(input => {
+                input.addEventListener('blur', function () {
+                    if (!input.checkValidity()) {
+                        input.classList.add('invalid');
+                    } else {
+                        input.classList.remove('invalid');
+                    }
+                });
+
+                input.addEventListener('input', function () {
+                    if (input.checkValidity()) {
+                        input.classList.remove('invalid');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
